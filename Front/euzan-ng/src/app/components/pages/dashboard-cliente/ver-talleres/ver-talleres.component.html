@@ -1,0 +1,40 @@
+<div id="showcase" class="show-case-section pt-100 pb-70">
+    <div class="container">
+        
+        <span class="space">---</span>
+        <div class="section-title">
+            <h2>Mira los últimos talleres disponibles</h2>
+            <p>Escoje la modalidad que más te sirva entre múltiples opciones, ¡Pronto vienen más!</p>
+        </div>
+        <div class="row">
+            
+            <ng-template ngFor let-obj [ngForOf]="talleres" ; let-i="index">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="showcase-card">
+                        <img src="assets/img/lana.png" alt="showcase image">
+                        <div class="showcsae-text">
+                            <h3>{{obj.Name}}</h3>
+                            <p>Tipo: {{obj.Type}}</p>
+                            <p>Precio: {{obj.Price}}</p>
+                        </div>
+                        <div class="shoscase-hover">
+                            <div class="d-table">
+                                <div class="d-table-cell">
+                                    <h3>¿Qué harás?</h3>
+                                    <p>{{obj.Description}}</p>
+                                    <div class="banner-btn">
+                                        <a id="aceptar" (click) = "suscribirse(obj.IdWorkshop)">Suscribirse</a>       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            
+            
+            
+            
+        </div>
+    </div>
+</div>

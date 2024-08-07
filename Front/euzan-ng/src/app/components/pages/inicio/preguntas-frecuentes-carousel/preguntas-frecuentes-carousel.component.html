@@ -1,0 +1,25 @@
+<div id="preguntas" class="testimonial-style-four">
+    <div class="container">
+        <div class="section-title">
+            <h2>Preguntas Frecuentes</h2>
+            <p>Muchos de nuestros usuarios constantemente tienen algunas preguntas que pueden interesarte, echa un vistazo a las siguientes:</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="testimonial-slider-wrapper">
+                    <owl-carousel-o [options]="testimonialWrapperSlides">
+                        <ng-template ngFor let-obj [ngForOf]="preguntas" ; let-i="index">
+                        <ng-template carouselSlide>
+                                <div class="tsetimonial-card">
+                                    <img src="assets/img/pregunta{{i % 3}}.png" alt="client image">
+                                    <h3>{{obj.Question1}}</h3>
+                                    <p>{{obj.Answer}}</p>
+                                </div>
+                            </ng-template>
+                        </ng-template>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

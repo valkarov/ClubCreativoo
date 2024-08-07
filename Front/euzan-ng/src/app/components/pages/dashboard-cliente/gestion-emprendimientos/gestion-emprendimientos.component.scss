@@ -1,0 +1,145 @@
+.service-style-four {
+    .button-agregar {
+        width: 100%;
+        margin-top: 30px;
+        text-align: center;
+        a {
+            color: #03abeb;
+            font-weight: 600;
+            padding: 10px 50px;
+            border-radius: 80px;
+            background-color: rgb(170, 93, 153);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 6px 13px rgba(0, 0, 0, 0.25) !important;
+            font: {
+                size: 20px;
+                weight: 600;
+                family: var(--headingFontFamily);
+            };
+            &:hover {
+                background: rgb(207, 61, 85);
+                color: var(--whiteColor);
+            }
+        }
+        
+    }
+    .banner-btn {
+        margin-top: 15px;
+        a {
+            color: #03abeb;
+            font-weight: 400;
+            margin-right: 10px;
+            padding: 5px 20px;
+            border-radius: 80px;
+            background-color: var(--whiteColor);
+            cursor: pointer;
+            box-shadow: 0 6px 5px rgba(0, 0, 0, 0.25) !important;
+            font: {
+                size:15px;
+                weight: 400;
+                family: var(--headingFontFamily);
+            };
+            
+        }
+        #aceptar{
+            border: 1px solid #179602;
+            background-color: white;
+            color: #179602;
+            &:hover {
+                border: 1px solid #179602;
+                background-color: #179602;
+                color: white;
+            }
+
+        }
+        #editar{
+            border: 1px solid #20207b;
+            background-color: white;
+            color: #20207b;
+            &:hover {
+                border: 1px solid #20207b;
+                background-color: #20207b;
+                color: white;
+            }
+
+        }
+        #rechazar {
+            border: 1px solid #DE2B2B;
+            background-color: white;
+            color: #DE2B2B;
+            &:hover {
+                border: 1px solid #DE2B2B;
+                background-color: #DE2B2B;
+                color: white;
+            }
+
+        }
+        
+    }
+    .service-card {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+        border-radius: 30px 0 30px 30px;
+        margin-bottom: 30px;
+        position: relative;
+        text-align: center;
+        padding: 35px;
+        z-index: 0;
+        height: 90%;
+
+        &:hover::before {
+            height: 100%;
+        }
+        &::before {
+            top: 0;
+            right: 0;
+            height: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: -1;
+            content: '';
+            position: absolute;
+            border-radius: 30px 0 30px 30px;
+            background: linear-gradient(90deg, rgb(207, 61, 85) 0%, rgb(170, 93, 153) 100%);
+        }
+        &:hover i, &:hover h3, &:hover p {
+            color: var(--whiteColor);
+        }
+        &:hover i {
+            background: #ce5f4d;
+        }
+        i {
+            display: inline-block;
+            background: #f6e6ef;
+            margin-bottom: 25px;
+            border-radius: 50px;
+            line-height: 70px;
+            color: #d2587f;
+            font-size: 35px;
+            height: 70px;
+            width: 70px;
+        }
+        h3 {
+            margin-bottom: 10px;
+            font: {
+                size: 20px;
+                weight: 600;
+            };
+        }
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {}

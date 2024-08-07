@@ -1,0 +1,137 @@
+.about-us-section {
+    position: relative;
+
+    .about-image {
+        position: relative;
+        z-index: 1;
+
+        &::before {
+            top: 0;
+            left: 0;
+            width: 94%;
+            content: '';
+            z-index: -1;
+            height: 100%;
+            position: absolute;
+            animation: translateY 10s infinite linear;
+            background: {
+                image: url(../../../../../assets/img/creative-agency/about-shape.png);
+                position: center center;
+                size: cover;
+            };
+        }
+        &::after {
+            top: 0;
+            width: 70%;
+            left: 35px;
+            z-index: -1;
+            content: '';
+            height: 80%;
+            position: absolute;
+            transform: rotate(335deg);
+            animation: translateY 20s infinite linear;
+            background: {
+                image: url(../../../../../assets/img/creative-agency/about-shape.png);
+                position: center center;
+                size: cover;
+            };
+        }
+    }
+    .section-title {
+        margin: 0 0 20px;
+    }
+    .about-text {
+        padding: {
+            left: 50px;
+            right:30px;
+        };
+        ul {
+            padding-left: 0;
+            margin-bottom: 40px;
+            list-style-type: none;
+
+            li {
+                margin-bottom: 10px;
+                font: {
+                    weight: 600;
+                    size: 18px;
+                };
+                i {
+                    margin-right: 10px;
+                    color: #efb8ba;
+                    font-size: 14px;
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .about-btn {
+            a {
+                font-weight: 600;
+                padding: 12px 40px;
+                border-radius: 30px;
+                display: inline-block;
+                color: var(--whiteColor);
+                border: 1px solid transparent;
+                background: linear-gradient(90deg, rgba(230,123,114,1) 0%, rgba(207,112,141,1) 100%);
+
+                &:hover {
+                    background: none;
+                    border: 1px solid #f71c0a;
+                    color: #f71c0a;
+                }
+            }
+        }
+    }
+    .about-shape {
+        img {
+            position: absolute;
+            width: 300px;
+            bottom: 60px;
+            right: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .about-us-section {
+        .about-image {
+            margin-bottom: 30px;
+        }
+        .about-shape {
+            display: none;
+        }
+        .about-text {
+            padding-left: 0;
+            padding-right: 0;
+            text-align: center;
+
+            ul {
+                li {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .about-us-section {
+        .about-image {
+            margin-bottom: 40px;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {}

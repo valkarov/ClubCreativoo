@@ -1,0 +1,33 @@
+<div id="administradores" class="service-style-four pb-70">
+    <div class="container">
+        <div class="section-title">
+            <span class="space">---</span>
+            <h2>Gestiona los administradores de tu emprendimiento aquí</h2>
+            <p>Agrega nuevos administradores, retira el acceso y mira el estado de la solicitud aquí </p>
+            <form class="newsletter-form">
+                <input type="text" class="form-control" placeholder="Ingresa el username" name="user" [(ngModel)] = "this.adminNuevo" >
+                <button class="default-btn electronics-btn" (click) = "enviarSolicitud()">Agregar Administrador</button>
+            </form>
+        </div>
+        <div class="row">
+            <ng-template ngFor let-obj [ngForOf]="admins" ; let-i="index">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-card">
+                        <h3>Usuario: {{obj.IdClient}}</h3>
+                        
+                        <div class="banner-btn" *ngIf="obj.state =='Aceptado'">
+                            <a id="rechazar" (click) = "quitarAcceso(obj.IdClient)">Quitar Acceso</a>     
+                        </div>
+                        <div class="banner-btn" *ngIf="obj.state =='Pendiente'">
+                            <span id="info">Solicitud en espera de aprobación</span>     
+                        </div>
+                        <div class="banner-btn" *ngIf="obj.state =='Rechazado'">
+                            <a id="editar" (click) = "ReenviarSolicitud(obj.IdClient)">Invitar de Nuevo</a>     
+                        </div>
+                          
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+<div id="home" class="main-banner banner-style-three banner-bg-five" style="min-height: 1000px; height: max-content;">
+    <div class="d-table" style="height: max-content;" >
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="row" style="margin-top: 10%;">
+                    <div class="col-lg-6">
+                        <div class="banner-text">
+                            <h1>Completa la siguiente información para tu cuenta</h1>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        
+    <form class="newsletter-form" >
+        <input type="text" class="form-control" placeholder="Nombre" name="Nombre" [(ngModel)]="objeto.FirstName" disabled>
+        <label for="Nombre">Nombre:</label>
+    </form>
+    
+    <form class="newsletter-form">
+        <input type="text" class="form-control" placeholder="Apellido" name="Apellido" [(ngModel)]="objeto.LastName" disabled>
+        <label class="texto" for="Apellido" type="submit">Apellido:</label>
+    </form>
+    
+    <form class="newsletter-form">
+        <input type="text" class="form-control" placeholder="X-XXXX-XXXX" name="IdCliente"
+               [(ngModel)]="objeto.IdClient" 
+               (ngModelChange)="checkAvailabilityId()"
+               (input)="formatoNumeros($event, 9)"
+               [style.border]="mensajeId === 'Disponible' ? '2px solid green' : (mensajeId === 'No disponible' ? '2px solid red' : '')"
+               >
+        <label class="texto" for="IdCliente" type="submit">Número de Cédula:</label>
+      </form>
+    <form class="newsletter-form">
+        <input type="text" class="form-control" placeholder="Nombre de Usuario" name="Usuario" 
+        [(ngModel)]="objeto.Username"
+        disabled
+        (ngModelChange)="checkAvailabilityUser()"
+        [style.border]="mensajeUser === 'Disponible' ? '2px solid green' : (mensajeUser === 'No disponible' ? '2px solid red' : '')">  
+        <label class="texto" for="Usuario" type="submit">Nombre de Usuario:</label>
+    </form>
+    
+    <form class="newsletter-form">
+        <input type="tel" class="form-control" placeholder="XXXX-XXXX" name="Telefono" [(ngModel)]="objeto.Phone" required
+        (input)="formatoNumeros($event, 8)">
+        <label class="texto" for="Telefono" type="submit">Teléfono:</label>
+    </form>
+
+    <form class="newsletter-form">
+        <input type="email" class="form-control" placeholder="ejemplo@dominio.com" name="Correo" 
+        [(ngModel)]="objeto.Email" disabled
+        (ngModelChange)="checkAvailabilityEmail()"
+        [style.border]="mensajeEmail === 'Disponible' ? '2px solid green' : (mensajeEmail === 'No disponible' ? '2px solid red' : '')">
+        <label class="texto" for="Correo" type="submit">Correo:</label>
+    </form>
+    
+    <form class="newsletter-form" hidden>
+        <input type="password" class="form-control" placeholder="Contraseña" name="Pass" [(ngModel)]="objeto.Password">
+        <label class="texto" for="Pass" type="submit">Contraseña:</label>
+    </form>
+    
+    <form class="newsletter-form" hidden>
+        <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="ConfirmarPass" [(ngModel)]="confirm">
+        <label class="texto" for="ConfirmarPass" type="submit">Confirmar Contraseña:</label>
+    </form>
+    
+    <form class="newsletter-form">
+        
+        <select class="form-control" placeholder="Selecciona una provincia" id="provincia" [(ngModel)]="objeto.Province" name="provincia" (click)="selected()">
+            <ng-template ngFor let-obj [ngForOf]="provincias" let-i="index">
+                <option [value]="obj.Name">{{obj.Name}}</option>
+            </ng-template>
+        </select>
+        <label class="texto" for="Provincia" type="submit">Provincia:</label>
+    </form>
+    
+    <form class="newsletter-form">
+        
+        <select class="form-control" id="canton" [(ngModel)]="objeto.Canton" name="Canton" (click)="selectedcant()">
+            <ng-template ngFor let-obj [ngForOf]="cantones" let-i="index">
+                <option [value]="obj.Name">{{obj.Name}}</option>
+            </ng-template>
+        </select>
+        <label class="texto" for="Cantón" type="submit">Cantón:</label>
+    </form>
+
+    <form class="newsletter-form">
+        
+        <select class="form-control" id="distrito" [(ngModel)]="objeto.District" name="distrito">
+            <ng-template ngFor let-obj [ngForOf]="distritos" let-i="index">
+                <option [value]="obj.Name">{{obj.Name}}</option>
+            </ng-template>
+        </select>
+        <label class="texto" for="Distrito" type="submit">Distrito:</label>
+    </form>
+    
+    
+
+
+    <div class="banner-btn">
+        <a (click)="guardar()">Agregar</a>
+        <a (click)="redirigir('/dashboard-cliente')">Cancelar</a>
+    </div>
+
+
+                    
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>

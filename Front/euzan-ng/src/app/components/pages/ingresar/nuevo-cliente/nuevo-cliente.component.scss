@@ -1,0 +1,72 @@
+.newsletter-form {
+    position: relative;
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: row-reverse;
+
+    .form-control {
+        box-shadow: unset !important;
+        color: black;
+        background: #ffffff;
+        border-radius: 0px 10px 10px 0px;
+        padding: 0 20px;
+        height: 50px;
+        border: 0;
+        width: 100%;
+    }
+    ::placeholder {
+        color: black;
+        opacity: .9;
+    }
+    
+    label {
+        position: relative;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        min-width: 200px;
+        border-radius: 10px 0px 0px 10px;
+        border-right: 2px solid rgba(5, 36, 119, 0.85);
+        text-align: center;
+        color: rgba(5, 36, 119, 0.85);
+        background: white;
+        font-weight: 550;
+        font-family: var(--headingFontFamily);
+        transition: var(--transition);
+
+        z-index: 1;
+        cursor:default;
+    }
+    
+}
+.banner-btn {
+    width: 100%;
+    margin-top: 40px;
+    text-align:center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    a {
+        color: rgba(5, 36, 119, 0.85);
+        font-weight: 600;
+        padding: 10px 30px;
+        border-radius: 80px;
+        background-color: var(--whiteColor);
+        cursor: pointer;
+        box-shadow: 0 6px 13px rgba(0, 0, 0, 0.25) !important;
+        font: {
+            weight: 600;
+            family: var(--headingFontFamily);
+        };
+        &:hover {
+            background: rgba(5, 36, 119, 0.85);
+            color: var(--whiteColor);
+        }
+    }
+    
+}

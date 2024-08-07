@@ -1,0 +1,31 @@
+<div id="talleres" class="service-style-four pb-70">
+    <div class="container">
+        <div class="section-title">
+            <span class="space">---</span>
+            <h2>Gestiona tus Talleres aquí</h2>
+            <p>Podrás Agregar, eliminar o editar tus talleres para que sean visto por nuestros clientes</p>
+            <div class="button-agregar" >
+                <a (click)= "redirigir('/nuevo-taller')">Inscribir Nuevo Taller</a>
+            </div>
+        </div>
+        <div class="row">
+            <ng-template ngFor let-obj [ngForOf]="talleres" ; let-i="index">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-card">
+                        <h3>{{obj.Name}}</h3>
+                        <p>Descripción: {{obj.Description}}</p>
+                        <p>Precio: {{obj.Price}}</p>
+                        <p>Enlace: {{obj.Link}}</p>
+                        <p>Tipo: {{obj.Type}}</p>
+                        
+
+                        <div class="banner-btn">
+                            <a id="editar" [routerLink]="['/actualizar-taller',obj.IdWorkshop]">Editar</a>
+                            <a id="rechazar" (click) = "eliminarTaller(obj.IdWorkshop)">Eliminar</a>     
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

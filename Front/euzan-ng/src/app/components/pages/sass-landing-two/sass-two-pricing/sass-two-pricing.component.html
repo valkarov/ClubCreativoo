@@ -1,0 +1,164 @@
+<div id="pricing" class="pricing-section pricing-style-two">
+    <div class="container">
+        <div class="section-title">
+            <h2>Choose Your Affortable Price Plan</h2>
+            <p>A comment is something that you say which expresses your opinion of something or which gives an explanation of it. If an event or situation.</p>
+        </div>
+        <div class="pricing-tabs">
+            <ul class="nav-tabset">
+                <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab1'}">
+                    <span (click)="switchTab($event, 'tab1')">
+                        Monthly Plan
+                    </span>
+                </li>
+                <li class="nav-tab" [ngClass]="{'active': currentTab === 'tab2'}">
+                    <span (click)="switchTab($event, 'tab2')">
+                        Annual Plan
+                    </span>
+                </li>
+            </ul>
+            <div class="tabs-container">
+                <div class="pane" id="tab1" *ngIf="currentTab === 'tab1'">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="price-card">
+                                <p>Personal Pack</p>
+                                <h3>$12<span> /Month</span></h3>
+                                <div class="price-feature">
+                                    <ul>
+                                        <li><i class="flaticon-checked"></i> Limited Trips</li>
+                                        <li><i class="flaticon-checked"></i> Available Trip History</li>
+                                        <li><i class="flaticon-checked"></i> Only 1 offer/month</li>
+                                        <li><i class="flaticon-checked"></i> Special Discount</li>
+                                        <li><i class="flaticon-block"></i> No Free Trip</li>
+                                        <li><i class="flaticon-block"></i> Membership Card</li>
+                                        <li><i class="flaticon-block"></i> Trip Cancellation</li>
+                                        <li><i class="flaticon-block"></i> Money Return</li>
+                                    </ul>
+                                </div>
+                                <div class="price-btn">
+                                    <a routerLink="/">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="price-card active-price business-class ">
+                                <p>Business Class</p>
+                                <h3>$35<span> /Month</span></h3>
+                                <div class="price-feature">
+                                    <ul>
+                                        <li><i class="flaticon-checked"></i> Limited Trips</li>
+                                        <li><i class="flaticon-checked"></i> Available Trip History</li>
+                                        <li><i class="flaticon-checked"></i> Only 1 offer/month</li>
+                                        <li><i class="flaticon-checked"></i> Special Discount</li>
+                                        <li><i class="flaticon-checked"></i> No Free Trip</li>
+                                        <li><i class="flaticon-checked"></i> Membership Card</li>
+                                        <li><i class="flaticon-block"></i> Trip Cancellation</li>
+                                        <li><i class="flaticon-block"></i> Money Return</li>
+                                    </ul>
+                                </div>
+                                <div class="price-btn">
+                                    <a routerLink="/">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+                            <div class="price-card premium">
+                                <p>Premium</p>
+                                <h3>$50<span> /Month</span></h3>
+                                <div class="price-feature">
+                                    <ul>
+                                        <li><i class="flaticon-checked"></i> Limited Trips</li>
+                                        <li><i class="flaticon-checked"></i> Available Trip History</li>
+                                        <li><i class="flaticon-checked"></i> Only 1 offer/month</li>
+                                        <li><i class="flaticon-checked"></i> Special Discount</li>
+                                        <li><i class="flaticon-checked"></i> No Free Trip</li>
+                                        <li><i class="flaticon-checked"></i> Membership Card</li>
+                                        <li><i class="flaticon-checked"></i> Trip Cancellation</li>
+                                        <li><i class="flaticon-checked"></i> Money Return</li>
+                                    </ul>
+                                </div>
+                                <div class="price-btn">
+                                    <a routerLink="/">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pane" id="tab2" *ngIf="currentTab === 'tab2'">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="price-card">
+                                <p>Personal Pack</p>
+                                <h3>$30<span> /Annual</span></h3>
+                                <div class="price-feature">
+                                    <ul>
+                                        <li><i class="flaticon-checked"></i> Limited Trips</li>
+                                        <li><i class="flaticon-checked"></i> Available Trip History</li>
+                                        <li><i class="flaticon-checked"></i> Only 1 offer/month</li>
+                                        <li><i class="flaticon-checked"></i> Special Discount</li>
+                                        <li><i class="flaticon-block"></i> No Free Trip</li>
+                                        <li><i class="flaticon-block"></i> Membership Card</li>
+                                        <li><i class="flaticon-block"></i> Trip Cancellation</li>
+                                        <li><i class="flaticon-block"></i> Money Return</li>
+                                    </ul>
+                                </div>
+                                <div class="price-btn">
+                                    <a routerLink="/">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="price-card active-price business-class ">
+                                <p>Business Class</p>
+                                <h3>$60<span> /Annual</span></h3>
+                                <div class="price-feature">
+                                    <ul>
+                                        <li><i class="flaticon-checked"></i> Limited Trips</li>
+                                        <li><i class="flaticon-checked"></i> Available Trip History</li>
+                                        <li><i class="flaticon-checked"></i> Only 1 offer/month</li>
+                                        <li><i class="flaticon-checked"></i> Special Discount</li>
+                                        <li><i class="flaticon-checked"></i> No Free Trip</li>
+                                        <li><i class="flaticon-checked"></i> Membership Card</li>
+                                        <li><i class="flaticon-block"></i> Trip Cancellation</li>
+                                        <li><i class="flaticon-block"></i> Money Return</li>
+                                    </ul>
+                                </div>
+                                <div class="price-btn">
+                                    <a routerLink="/">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+                            <div class="price-card premium">
+                                <p>Premium</p>
+                                <h3>$90<span> /Annual</span></h3>
+                                <div class="price-feature">
+                                    <ul>
+                                        <li><i class="flaticon-checked"></i> Limited Trips</li>
+                                        <li><i class="flaticon-checked"></i> Available Trip History</li>
+                                        <li><i class="flaticon-checked"></i> Only 1 offer/month</li>
+                                        <li><i class="flaticon-checked"></i> Special Discount</li>
+                                        <li><i class="flaticon-checked"></i> No Free Trip</li>
+                                        <li><i class="flaticon-checked"></i> Membership Card</li>
+                                        <li><i class="flaticon-checked"></i> Trip Cancellation</li>
+                                        <li><i class="flaticon-checked"></i> Money Return</li>
+                                    </ul>
+                                </div>
+                                <div class="price-btn">
+                                    <a routerLink="/">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="price-shape">
+        <img src="assets/img/sass-landing/shapes/8.png" alt="shap">
+        <img src="assets/img/sass-landing/shapes/9.png" alt="shap">
+        <img src="assets/img/sass-landing/shapes/10.png" alt="shap">
+        <img src="assets/img/sass-landing/shapes/9.png" alt="shap">
+    </div>
+</div>

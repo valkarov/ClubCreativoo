@@ -1,0 +1,92 @@
+.testimonial-style-four {
+    padding-bottom: 200px;
+
+    .section-title {
+        margin-bottom: 130px;
+    }
+    .testimonial-slider-wrapper {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 180%;
+            top: -90px;
+            left: 0;
+            z-index: -1;
+            background: #003041;
+            clip-path: polygon(0 0, 100% 5%, 95% 79%, 6% 90%);
+        }
+        .tsetimonial-card {
+            text-align: center;
+            max-width: 500px;
+            margin: auto;
+
+            img {
+                width: 100px;
+                margin:0 auto 25px; 
+            }
+            h3 {
+                font-size: 22px;
+                font-weight: 600;
+                color: var(--whiteColor);
+            }
+            span {
+                margin-bottom: 20px;
+                color: var(--whiteColor);
+                display: inline-block;
+            }
+            p {
+                font-size: 18px;
+                color: var(--whiteColor);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .testimonial-style-four {
+        padding-bottom: 50px;
+
+        .section-title {
+            margin-bottom: 40px;
+        }
+        .testimonial-slider-wrapper {
+            .tsetimonial-card  {
+                padding: 15px 15px;
+
+                p {
+                    font-size: 14px;
+                }
+            }
+            &::before {
+                clip-path: none;
+                height: 100%;
+                top: 0;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .testimonial-style-four {
+        padding-top: 50px;
+    }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {}

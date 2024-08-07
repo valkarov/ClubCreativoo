@@ -1,0 +1,54 @@
+<div id="home" class="main-banner banner-style-three banner-bg-five">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="banner-text">
+                            <h1>Registro de un nuevo taller</h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form class="newsletter-form">
+                            <input type="text" class="form-control" placeholder="Name" name="Name" [(ngModel)]="objeto.Name" required>
+                            <label class="texto" type="submit">Nombre</label>
+                        </form>
+                        
+                        <form class="newsletter-form">
+                            <input type="number" class="form-control" placeholder="Price" name="Price" [(ngModel)]="objeto.Price" required>
+                            <label class="texto" type="submit">Precio</label>
+                        </form>
+                        
+                        
+                        
+                        <form class="newsletter-form">
+                            <input type="text" class="form-control" placeholder="Link" name="Link" [(ngModel)]="objeto.Link" required>
+                            <label class="texto" type="submit">Enlace</label>
+                        </form>
+                        
+                        <form class="newsletter-form">
+                            
+                            <select class="form-control" id="tipo" [(ngModel)]="objeto.Type" name="tipo">
+                                <option value="Virtual">Virtual</option>
+                                <option value="Presencial">Presencial</option>
+                            </select>
+                            <label class="texto" for="Tipo" type="submit">Tipo</label>
+                        </form>
+
+                        <form class="newsletter-form" style="flex-direction: column;">
+                            <div class="texto2" for="description">Descipción:</div>
+                            <textarea class="form-control" id="description" placeholder="Describe tu taller" name="description" [(ngModel)]="objeto.Description"></textarea>
+                        </form>
+                        
+
+                        <div class="banner-btn">
+                            <a (click)="guardar()">Agregar</a>
+                            <a (click)="redirigir('/dashboard-emprendimiento')">Cancelar</a>
+                        </div>
+
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>

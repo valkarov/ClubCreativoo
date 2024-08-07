@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="creativoDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="IdAdmin" />
+    </Key>
+    <Property Name="IdAdmin" Type="Int32" Nullable="false" />
+    <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PEDIDOS" Relationship="Self.FK__PEDIDO__IdClient__4BAC3F29" FromRole="CLIENTE" ToRole="PEDIDO" />
+    <NavigationProperty Name="TALLERES" Relationship="Self.TALLER_CLIENTE" FromRole="CLIENTE" ToRole="TALLER" />
+  </EntityType>
+  <EntityType Name="EMPRENDIMIENTO">
+    <Key>
+      <PropertyRef Name="IdEmprendimiento" />
+    </Key>
+    <Property Name="IdEmprendimiento" Type="Int32" Nullable="false" />
+    <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Sinpe" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PEDIDO">
+    <Key>
+      <PropertyRef Name="IdPedido" />
+    </Key>
+    <Property Name="IdPedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdRepartidor" Type="Int32" />
+    <Property Name="IdCliente" Type="Int32" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK__PEDIDO__IdClient__4BAC3F29" FromRole="PEDIDO" ToRole="CLIENTE" />
+    <NavigationProperty Name="REPARTIDOR" Relationship="Self.FK__PEDIDO__IdRepart__4AB81AF0" FromRole="PEDIDO" ToRole="REPARTIDOR" />
+  </EntityType>
+  <EntityType Name="PREGUNTA">
+    <Key>
+      <PropertyRef Name="IdPreguntas" />
+    </Key>
+    <Property Name="IdPreguntas" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Pregunta1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Respuesta" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="REPARTIDOR">
+    <Key>
+      <PropertyRef Name="IdRepartidor" />
+    </Key>
+    <Property Name="IdRepartidor" Type="Int32" Nullable="false" />
+    <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PEDIDOS" Relationship="Self.FK__PEDIDO__IdRepart__4AB81AF0" FromRole="REPARTIDOR" ToRole="PEDIDO" />
+  </EntityType>
+  <EntityType Name="TALLER">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="IdEmprendimiento" Type="Int32" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Precio" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="EMPRENDIMIENTO" Relationship="Self.FK__TALLER__IdEmpren__3D5E1FD2" FromRole="TALLER" ToRole="EMPRENDIMIENTO" />
+    <NavigationProperty Name="TALLER_FOTOS" Relationship="Self.FK__TALLER_FO__Talle__4222D4EF" FromRole="TALLER" ToRole="TALLER_FOTOS" />
+    <NavigationProperty Name="CLIENTES" Relationship="Self.TALLER_CLIENTE" FromRole="TALLER" ToRole="CLIENTE" />
+  </EntityType>
+  <EntityType Name="TALLER_FOTOS">
+    <Key>
+      <PropertyRef Name="Taller" />
+      <PropertyRef Name="Foto" />
+    </Key>
+    <Property Name="Taller" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Foto" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TALLER1" Relationship="Self.FK__TALLER_FO__Talle__4222D4EF" FromRole="TALLER_FOTOS" ToRole="TALLER" />
+  </EntityType>
+  <Association Name="FK__PEDIDO__IdClient__4BAC3F29">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TALLER__IdEmpren__3D5E1FD2">
+    <End Role="EMPRENDIMIENTO" Type="Self.EMPRENDIMIENTO" Multiplicity="0..1" />
+    <End Role="TALLER" Type="Self.TALLER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRENDIMIENTO">
+        <PropertyRef Name="IdEmprendimiento" />
+      </Principal>
+      <Dependent Role="TALLER">
+        <PropertyRef Name="IdEmprendimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PEDIDO__IdRepart__4AB81AF0">
+    <End Role="REPARTIDOR" Type="Self.REPARTIDOR" Multiplicity="0..1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REPARTIDOR">
+        <PropertyRef Name="IdRepartidor" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="IdRepartidor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TALLER_FO__Talle__4222D4EF">
+    <End Role="TALLER" Type="Self.TALLER" Multiplicity="1" />
+    <End Role="TALLER_FOTOS" Type="Self.TALLER_FOTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TALLER">
+        <PropertyRef Name="Nombre" />
+      </Principal>
+      <Dependent Role="TALLER_FOTOS">
+        <PropertyRef Name="Taller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TALLER_CLIENTE">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+    <End Role="TALLER" Type="Self.TALLER" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="creativoDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADMINS" EntityType="Self.ADMIN" />
+    <EntitySet Name="CLIENTES" EntityType="Self.CLIENTE" />
+    <EntitySet Name="EMPRENDIMIENTOS" EntityType="Self.EMPRENDIMIENTO" />
+    <EntitySet Name="PEDIDOS" EntityType="Self.PEDIDO" />
+    <EntitySet Name="PREGUNTAS" EntityType="Self.PREGUNTA" />
+    <EntitySet Name="REPARTIDORES" EntityType="Self.REPARTIDOR" />
+    <EntitySet Name="TALLERES" EntityType="Self.TALLER" />
+    <EntitySet Name="TALLER_FOTOS" EntityType="Self.TALLER_FOTOS" />
+    <AssociationSet Name="FK__PEDIDO__IdClient__4BAC3F29" Association="Self.FK__PEDIDO__IdClient__4BAC3F29">
+      <End Role="CLIENTE" EntitySet="CLIENTES" />
+      <End Role="PEDIDO" EntitySet="PEDIDOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TALLER__IdEmpren__3D5E1FD2" Association="Self.FK__TALLER__IdEmpren__3D5E1FD2">
+      <End Role="EMPRENDIMIENTO" EntitySet="EMPRENDIMIENTOS" />
+      <End Role="TALLER" EntitySet="TALLERES" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PEDIDO__IdRepart__4AB81AF0" Association="Self.FK__PEDIDO__IdRepart__4AB81AF0">
+      <End Role="REPARTIDOR" EntitySet="REPARTIDORES" />
+      <End Role="PEDIDO" EntitySet="PEDIDOS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TALLER_FO__Talle__4222D4EF" Association="Self.FK__TALLER_FO__Talle__4222D4EF">
+      <End Role="TALLER" EntitySet="TALLERES" />
+      <End Role="TALLER_FOTOS" EntitySet="TALLER_FOTOS" />
+    </AssociationSet>
+    <AssociationSet Name="TALLER_CLIENTE" Association="Self.TALLER_CLIENTE">
+      <End Role="CLIENTE" EntitySet="CLIENTES" />
+      <End Role="TALLER" EntitySet="TALLERES" />
+    </AssociationSet>
+    <EntitySet Name="ROLES" EntityType="creativoDBModel.ROL" />
+  </EntityContainer>
+  <EntityType Name="ROL">
+    <Key>
+      <PropertyRef Name="Usuario" />
+    </Key>
+    <Property Name="Usuario" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

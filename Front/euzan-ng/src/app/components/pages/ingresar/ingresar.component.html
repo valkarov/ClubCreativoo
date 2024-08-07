@@ -1,0 +1,46 @@
+<div class="newsletter" >
+    <div class="container">
+        <div class="newsletter-area">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="newsletter-text">
+                            <img src="assets/img/Club Creativo Logo Blanco.png" alt="logo">
+                    </div>
+                </div>
+                <div class="col-lg-6" >
+                    <h3>Ingresa a tu cuenta</h3>
+                    <form class="newsletter-form">
+                        <input type="text" class="form-control" placeholder="Ingresa tu usuario" name="USER" [(ngModel)]= usuario >
+                        <label class="default-btn electronics-btn" type="submit">Usuario</label>
+                    </form>
+
+                    <form class="newsletter-form">
+                        <input type="password" class="form-control" placeholder="Ingresa tu contraseña" name="PASS" [(ngModel)]= pass >
+                        <label class="default-btn electronics-btn" type="submit">Contraseña</label>
+                    </form>
+
+                    <div id="buttonDiv">
+
+                    </div>
+
+                    <!-- Banner de error -->
+                    <div class="error-banner" *ngIf="error">
+                        {{errorMessage}}
+                    </div>
+                    
+                    <div class="banner-btn" (click)= "Ingresar()" >
+                        <a>Ingresar</a>
+                    </div>
+                    <div id="crear-cuenta" (click)= "redirigir('/registrarse')"> ¿No tienes cuenta? Crear una</div>
+                    <div id="crear-cuenta" (click)= "recuperar()"> ¿Olvidaste tu contraseña?</div>
+
+                </div>
+            </div>
+            <div class="subscribe-shape">
+                <img src="assets/img/shape/subscribe-shape.png" alt="shape">
+                <img src="assets/img/shape/subscribe-shape-two.png" alt="shape">
+                <img src="assets/img/shape/subscribe-shape-three.png" alt="shape">
+            </div>
+        </div>
+    </div>
+</div>

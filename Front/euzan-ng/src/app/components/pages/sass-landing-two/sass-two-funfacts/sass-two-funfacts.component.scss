@@ -1,0 +1,79 @@
+.counter-style-two {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        position: absolute;
+        content: '';
+        background-image: url(../../../../../assets/img/sass-landing/counter-shape.png);
+        background-position: center center;
+        background-size: cover;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    .counter-text {
+        margin-bottom: 30px;
+        text-align: center;
+
+        i {
+            font-size: 50px;
+            margin-bottom: 12px;
+
+            &.flaticon-value {
+                color: #cf496d;
+            }
+            &.flaticon-rating {
+                color: #8d52eb;
+            }
+            &.flaticon-clipboard {
+                color: #f84ca0;
+            }
+            &.flaticon-rocket {
+                color: #05a2e9;
+            }
+        }
+        h3 {
+            margin-bottom: 5px;
+            font: {
+                size: 35px;
+                weight: 700;
+            };
+        }
+        p {
+            font-size: 17px;
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .counter-style-two {
+        padding-top: 30px;
+        padding-bottom: 40px;
+
+        &::before {
+            display: none;
+        }
+        .counter-text {
+            margin-bottom: 10px;
+
+            p {
+                font-size: 15px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {}

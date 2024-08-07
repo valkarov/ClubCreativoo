@@ -1,0 +1,55 @@
+<div id="home" class="main-banner banner-style-three banner-bg-five">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="banner-text">
+                            <h1>Registro de nuevo Administrador</h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" >
+                        <div>
+                        <form class="newsletter-form">
+                            <input type="text" class="form-control" placeholder="Nombre" name="Nombre" [(ngModel)]="objeto.FirstName" required>
+                            <label class="texto" type="submit">Nombre</label>
+                        </form>
+                        
+                        <form class="newsletter-form">
+                            <input type="text" class="form-control" placeholder="Apellido" name="Apellido" [(ngModel)]="objeto.LastName" required>
+                            <label class="texto" type="submit">Apellido</label>
+                        </form>
+
+
+                        <form class="newsletter-form">
+                            <input type="number" class="form-control" placeholder="Número de Cédula" name="IdEmprendimiento" [(ngModel)]="objeto.IdAdmin">
+                            <label class="texto" type="submit">Número de Cédula</label>
+                        </form>
+                        
+                        <form class="newsletter-form">
+                            <input type="text" class="form-control" placeholder="Nombre de Usuario" name="Usuario" [(ngModel)]="objeto.Username" required>
+                            <label class="texto" type="submit">Nombre de Usuario</label>
+                        </form>
+                        
+                        <form class="newsletter-form">
+                            <input type="password" class="form-control" placeholder="Contraseña" name="Pass" [(ngModel)]="objeto.Password" required>
+                            <label class="texto" type="submit">Contraseña</label>
+                        </form>
+                        
+                        <form class="newsletter-form">
+                            <input type="password" class="form-control" placeholder="Confirmar Contraseña" name="Pass" [(ngModel)]="confirm" required>
+                            <label class="texto" type="submit">Confirmar Contraseña</label>
+                        </form>
+                    
+    
+                        <div class="banner-btn">
+                            <a (click)="guardar()">Agregar</a>
+                            <a (click)="redirigir('/dashboard-admin')">Cancelar</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>

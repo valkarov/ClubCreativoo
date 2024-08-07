@@ -1,0 +1,104 @@
+.testimonial-style-three {
+    padding-bottom: 100px;
+
+    .testimonial-area {
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 20px;
+
+        &::after {
+            left: 0;
+            top: 23%;
+            right: 0;
+            width: 50%;
+            content: "";
+            height: 75%;
+            margin: auto;
+            position: absolute;
+            border-radius: 30px;
+            background: #3056d2;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            background-image: url(../../../../../assets/img/personal-portfolio/testimonial-shape.png);
+            background-position: center center;
+            background-size: cover;
+            height: 150px;
+            width: 150px;
+            z-index: 1;
+            left: 25%;
+            top: 23%;
+        }
+    }
+    .sin-testiText {
+        h2 {
+            display: block;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--whiteColor);
+        }
+        img {
+            margin-bottom: 15px;
+            width: 150px !important;
+            display: inline-block !important;
+        }
+        span {
+            color: var(--whiteColor);
+        }
+        p {
+            margin-top: 22px;
+            color: var(--whiteColor);
+        }
+    
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .testimonial-style-three {
+        .testimonial-area {
+            &::after {
+                width: 100%;
+            }
+            .slick-prev::before, .slick-next::before {
+                display: none;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .testimonial-style-three {
+        .testimonial-area {
+            &::after {
+                width: 100%;
+            }
+        }
+        .sin-testiText p {
+            margin-top: 22px;
+            max-width: 500px;
+            margin: 22px auto;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {
+
+    .testimonial-style-three {
+        .testimonial-area::after {
+            width: 40%;
+        }
+    }
+
+}

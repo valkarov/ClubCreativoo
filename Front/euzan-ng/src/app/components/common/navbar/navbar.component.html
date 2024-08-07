@@ -1,0 +1,126 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<nav
+    class="navbar navbar-expand-lg navbar-light bg-light"
+    [class.active]="classApplied"
+    [ngClass]="{'sticky': isSticky}"
+>
+    <div class="container">
+        <a class="navbar-brand" (click)="onClick('/inicio','home')">
+            <img src={{logo}} alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" (click)="toggleClass()">
+            <span class="burger-menu">
+                <span class="top-bar"></span>
+                <span class="middle-bar"></span>
+                <span class="bottom-bar"></span>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="unregistered">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><span class="nav-link" (click)="onClick('/inicio','about')">Sobre Nosotros</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="onClick('/inicio','preguntas')">Preguntas</span></li>
+            </ul>
+            <ul class="navbar-nav ms-auto for-responsive">
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/inicio','home')">Inicio</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/inicio','about')">Sobre Nosotros</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/inicio','preguntas')">Preguntas</span></li>
+            </ul>
+            <div class="navbar-btn">
+                <a (click)="redirigir('/ingresar')">Ingresar</a>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="this.rol.Type == 'ADMIN'">
+            <div class="nav-container">
+                <ul>
+                    <li class="nav-item">
+                        <a class="nav-link" title="Inicio" (click)="onClick('/inicio','home')">
+                            <i class="fas fa-home"></i><span class="nav-title">Inicio</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="Solicitudes" (click)="onClick('/solicitudes', '')">
+                            <i class="fas fa-envelope"></i><span class="nav-title">Solicitudes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="Preguntas" (click)="onClick('/preguntas','')">
+                            <i class="fas fa-question-circle"></i><span class="nav-title">Preguntas</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="Administradores" (click)="onClick('/administradores','')">
+                            <i class="fas fa-user-cog"></i><span class="nav-title">Administradores</span>
+                        </a>
+                    </li>
+                </ul>
+                <a class="logout" title="Salir" (click)="logOut()">
+                    <i class="fas fa-sign-in-alt"></i><span class="nav-title">Salir</span>
+                </a>
+            </div>
+            <ul class="navbar-nav ms-auto for-responsive">
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/dashboard-admin','home')">Inicio</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/dashboard-admin','solicitudes')">Solicitudes</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/dashboard-admin','preguntas')">Preguntas</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/dashboard-admin','administradores')">Administradores</span></li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="this.rol.Type == 'EMPRENDIMIENTO'">
+
+            <div class="nav-container">
+                <ul>
+                    <li class="nav-item"><a class="nav-link" title="Inicio" (click)="onClick('/inicio','home')"><i class="fas fa-home"></i><span class="nav-title">Inicio</span></a></li>
+                    <li class="nav-item"><a class="nav-link" title="Perfil" (click)="onClick('/', '')"><i class="fas fa-user"></i><span class="nav-title">Perfil</span></a></li>
+                    <li class="nav-item"><a class="nav-link" title="Talleres" (click)="onClick('/talleres','')"><i class="fas fa-cut"></i><span class="nav-title">Talleres</span></a></li>
+                    <li class="nav-item"><a class="nav-link" title="Administradores" (click)="onClick('/emprendimiento-admins','')"><i class="fas fa-user-cog"></i><span class="nav-title">Administradores</span></a></li>
+                </ul>
+                <a class="logout" title="Salir" (click)="logOut()"><i class="fas fa-sign-in-alt"></i><span class="nav-title">Salir</span></a>
+            </div>
+            
+            <ul class="navbar-nav ms-auto for-responsive">
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/inicio','home')">Inicio</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/dashboard-emprendimiento','home')">Perfil</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/dashboard-emprendimiento','talleres')">Talleres</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/dashboard-emprendimiento','administradores')">Administradores</span></li>
+            </ul>
+            <div class="navbar-btn">
+                <a (click)="volverCuenta()">Volver a Cliente</a>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="this.rol.Type == 'CLIENTE'">
+
+            <div class="nav-container">
+                <ul>
+                    <li class="nav-item"><a class="nav-link" title="Inicio" (click)="onClick('/inicio','home')"><i class="fas fa-home"></i><span class="nav-title">Inicio</span></a></li>
+                    <li class="nav-item"><a class="nav-link" title="Perfil" (click)="onClick('/', '')"><i class="fas fa-user"></i><span class="nav-title">Perfil</span></a></li>
+                    <li class="nav-item"><a class="nav-link" title="Mis Pedidos" (click)="onClick('/mis-pedidos','')"><i class="fas fa-box"></i><span class="nav-title">Pedidos</span></a></li>
+                    <li class="nav-item"><a class="nav-link" title="Explora Talleres" (click)="onClick('/ver-talleres','')"><i class="fas fa-cut"></i><span class="nav-title">Talleres</span></a></li>
+                    <li class="nav-item"><a class="nav-link" title="Mis Emprendimientos" (click)="onClick('/mis-emprendimientos','')"><i class="fas fa-briefcase"></i><span class="nav-title">Emprendimientos</span></a></li>
+                </ul>
+                <a class="logout" title="Salir" (click)="logOut()"><i class="fas fa-sign-in-alt"></i><span class="nav-title">Salir</span></a>
+            </div>
+
+            <ul class="navbar-nav ms-auto for-responsive">
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/inicio','home')">Inicio</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/dashboard-cliente','home')">Perfil</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/dashboard-cliente','talleres')">Talleres</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/dashboard-cliente','emprendimientos')">Emprendimientos</span></li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="this.rol.Type == 'REPARTIDOR'">
+            <div class="nav-container">
+                <ul>
+                    <li class="nav-item"><a class="nav-link" title="Inicio" (click)="onClick('/inicio','home')"><i class="fas fa-home"></i><span class="nav-title">Inicio</span></a></li>
+                    <li class="nav-item"><a class="nav-link" title="Perfil" (click)="onClick('/', '')"><i class="fas fa-user"></i><span class="nav-title">Perfil</span></a></li>
+                    <li class="nav-item"><a class="nav-link" title="Pedidos" (click)="onClick('/pedidos','')"><i class="fas fa-receipt"></i><span class="nav-title">Próximas Entregas</span></a></li>
+                </ul>
+                <a class="logout" title="Salir" (click)="logOut()"><i class="fas fa-sign-in-alt"></i><span class="nav-title">Salir</span></a>
+            </div>
+
+            <ul class="navbar-nav ms-auto for-responsive">
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/inicio','home')">Inicio</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/dashboard-repartidor','about')">Perfil</span></li>
+                <li class="nav-item"><span class="nav-link" (click)="toggleClass(); onClick('/dashboard-repartidor','pricing')">Pedidos</span></li>
+            </ul> 
+        </div>
+    </div>
+</nav>

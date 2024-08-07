@@ -1,0 +1,35 @@
+.trusted-company {
+    .company-slider  {
+        img {
+            max-width: 200px;
+            padding: {
+                left: 20px;
+                right: 20px;
+            };
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .trusted-company {
+        padding-top: 50px;
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .trusted-company {
+        padding-top: 70px;
+    }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {}

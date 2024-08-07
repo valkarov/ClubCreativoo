@@ -1,0 +1,22 @@
+<div id="pedidos" class="service-style-four pb-70">
+    <div class="container">
+        <div class="section-title">
+            <span class="space">---</span>
+            <h2>Te has suscrito a estos Talleres</h2>
+            <p>Puedes ver su estado de entrega en los talles virtuales.</p>
+        </div>
+        <div class="row">
+            <ng-template ngFor let-obj [ngForOf]="ordenes" ; let-i="index">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-card">
+                        <h3>Orden: {{obj.IdOrder}}</h3>
+                        <p>Repartidor: {{obj.IdDeliveryPerson}}</p>
+                        <p>Teléfono: tel</p>
+                        <p>Lugar: {{obj.Address}}</p>
+                        <p>Estado: {{obj.State}}</p>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

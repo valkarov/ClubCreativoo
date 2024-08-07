@@ -1,0 +1,102 @@
+.work-process {
+    background: #fbe8e7;
+    border-radius: 150px 0 150px 0;
+
+    .process-card {
+        background: linear-gradient(90deg, rgba(228,102,92,1) 0%, rgba(217,89,120,1) 100%);
+        border-radius: 100px;
+        margin-bottom: 30px;
+        text-align: center;
+        position: relative;
+        height: 160px;
+        padding: 10px;
+
+        &::before {
+            top: 8px;
+            left: 0;
+            right: 0;
+            width: 90%;
+            height: 90%;
+            content: '';
+            margin: auto;
+            position: absolute;
+            border-radius: 100px;
+            border: 1px dashed var(--whiteColor);
+        }
+        h2 {
+            left: 0;
+            right: 0;
+            top: 20%;
+            margin: auto;
+            opacity: .08;
+            position: absolute;
+            color: var(--whiteColor);
+            font: {
+                size: 70px;
+                weight: 700;
+            };
+        }
+        h3 {
+            padding-top: 50px;
+            color: var(--whiteColor);
+            font: {
+                size: 25px;
+                weight: 600;
+            };
+        }
+    }
+    .card-two {
+        background: linear-gradient(90deg, rgba(192,86,146,1) 0%, rgba(155,91,163,1) 100%);
+    }
+    .card-three {
+        background: linear-gradient(90deg, rgba(107,96,170,1) 0%, rgba(155,91,163,1) 100%);
+    }
+    .card-four {
+        background: linear-gradient(90deg, rgba(43,98,165,1) 0%, rgba(155,91,163,1) 100%);
+    }
+    .card-five {
+        background: linear-gradient(90deg, rgba(217,89,120,1) 0%, rgba(228,102,92,1) 100%);
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .work-process {
+        .process-card {
+            border-radius: 10px;
+
+            &::before {
+                width: 90%;
+                height: 85%;
+                top: 12px;
+                border-radius: 10px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+    .work-process {
+        .process-card {
+            height: 125px;
+
+            &::before {
+                top: 6px;
+            }
+            h3 {
+                padding-top:35px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {}

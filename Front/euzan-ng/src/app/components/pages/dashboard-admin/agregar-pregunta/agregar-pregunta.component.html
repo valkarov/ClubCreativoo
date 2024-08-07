@@ -1,0 +1,32 @@
+<div id="home" class="main-banner banner-style-three banner-bg-five">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="banner-text">
+                            <h1>Registro de preguntas</h1>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form class="newsletter-form">
+                            <label class="texto" for="preguntaInput">Pregunta:</label>
+                            <textarea class="form-control" id="preguntaInput" placeholder="Ingrese su pregunta" name="preguntaInput" [(ngModel)]="objeto.Question1"></textarea>
+                        </form>
+                        
+                        <form class="newsletter-form">
+                            <label class="texto" for="respuestaInput">Respuesta:</label>
+                            <textarea class="form-control" id="respuestaInput" placeholder="Ingrese su respuesta" name="respuestaInput" [(ngModel)]="objeto.Answer"></textarea>
+                        </form>
+
+                        <div class="banner-btn">
+                            <a (click)="guardar()">Agregar</a>
+                            <a (click)="redirigir('/dashboard-admin')">Cancelar</a>
+                        </div>
+
+                    </div>
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>

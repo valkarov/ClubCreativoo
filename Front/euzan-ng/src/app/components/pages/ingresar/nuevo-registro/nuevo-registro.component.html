@@ -1,0 +1,40 @@
+<div id="home" class="main-banner banner-style-three banner-bg-five">
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container" style="padding-top: 150px; height: max-content; ">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="banner-text">
+                            <h1>Escoje tu de qué forma quieres crear una cuenta:</h1>
+                            
+                            <select class="form-control" id="rol" [(ngModel)]="opcionSeleccionada" name="rol">
+                                <option value='Cliente'>Cliente</option>
+                                <option value='Repartidor'>Repartidor</option>
+                                <option value='Google'>Google</option>
+                            </select>
+                            <span class="space"></span>
+                            <div id="buttonDiv">
+
+                            </div>
+                            </div>
+                        </div>
+                    <div class="col-lg-6 con">
+                        <ng-container *ngIf="opcionSeleccionada === ''">
+                        </ng-container>
+                        <ng-container *ngIf="opcionSeleccionada === 'Cliente'">
+                          <app-nuevo-cliente></app-nuevo-cliente>
+                        </ng-container>
+                        <ng-container *ngIf="opcionSeleccionada === 'Repartidor'">
+                            <app-nuevo-repartidor></app-nuevo-repartidor>
+                        </ng-container>
+                        <ng-container *ngIf="opcionSeleccionada === 'Google'">
+                            <app-completar-info></app-completar-info>
+                        </ng-container>
+                   
+                    </div>
+                    
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>

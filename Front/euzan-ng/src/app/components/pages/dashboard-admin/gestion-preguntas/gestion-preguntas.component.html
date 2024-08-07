@@ -1,0 +1,28 @@
+<div id="preguntas" class="service-style-four pb-70">
+    <div class="container">
+        <div class="section-title">
+            <span class="space">---</span>
+            <h2>Gestiona las preguntas frecuentes que los usuarios podrán ver en tu página de inicio</h2>
+            <p>Puedes editar, agregar y eliminar las siguientes preguntas:</p>
+            <div class="button-agregar" >
+                <a (click) = "redirigir('/nueva-pregunta')">Agregar Nueva Pregunta</a>
+            </div>
+        </div>
+        <div class="row">
+            <ng-template ngFor let-obj [ngForOf]="preguntas" ; let-i="index">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-card">
+                        <h3>{{obj.Question1}}</h3>
+                        <p>{{obj.Answer}}</p>
+                        
+
+                        <div class="banner-btn">
+                            <a id="editar" [routerLink]="['/actualizar-pregunta',obj.IdQuestion]">Editar</a>
+                            <a id="rechazar" (click) = "eliminarPregunta(obj.IdQuestion)">Eliminar</a>     
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

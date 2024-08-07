@@ -1,0 +1,103 @@
+.service-style-three {
+    .service-items {
+        text-align: center;
+        padding: 30px 25px;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        transition: var(--transition);
+
+        &:hover {
+            background: #874fe1;
+        }
+        &:hover i, &:hover h3, &:hover p {
+            color: var(--whiteColor) !important;
+        }
+        &:hover i {
+            background: #9869e4;
+        }
+        i {
+            font-size: 40px;
+            margin-top: -30px;
+            margin-bottom: 30px;
+            display: inline-block;
+            background: #e5eaff;
+            border-radius: 0 0 15px 15px;
+            transition: var(--transition);
+            line-height: 1;
+            width: 120px;
+            height: 120px;
+            line-height: 120px;
+
+            &.flaticon-ui {
+                color: #4e73ff;
+            }
+            &.flaticon-web-programming {
+                color: #06b781;
+            }
+            &.flaticon-medical-app {
+                color: #3454d1;
+            }
+            &.flaticon-writing {
+                color: #fe8700;
+            }
+            &.flaticon-java {
+                color: var(--whiteColor);
+            }
+            &.flaticon-video {
+                color: #e44f4f;
+            }
+        }
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            transition: var(--transition);
+        }
+        p {
+            margin-bottom: 0;
+            transition: var(--transition);
+        }
+        &.active {
+            background: #874fe1;
+
+            i, h3, p {
+                color: var(--whiteColor) !important;
+            }
+            i {
+                background: #9869e4;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .service-style-three {
+        .service-items {          
+            padding: 30px 10px;
+
+            i {
+                margin-bottom: 20px;
+                width: 90px;
+                height: 90px;
+                line-height: 90px;
+            }
+            h3 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1550px) {}

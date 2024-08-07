@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="creativoDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="IdAdmin" />
+    </Key>
+    <Property Name="IdAdmin" Type="int" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Pass" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Pass" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="100" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" />
+    <Property Name="Provincia" Type="varchar" MaxLength="50" />
+    <Property Name="Canton" Type="varchar" MaxLength="50" />
+    <Property Name="Distrito" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EMPRENDIMIENTO">
+    <Key>
+      <PropertyRef Name="IdEmprendimiento" />
+    </Key>
+    <Property Name="IdEmprendimiento" Type="int" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Pass" Type="varchar" MaxLength="50" />
+    <Property Name="Tipo" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="Correo" Type="varchar" MaxLength="100" />
+    <Property Name="Sinpe" Type="varchar" MaxLength="20" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" />
+    <Property Name="Provincia" Type="varchar" MaxLength="50" />
+    <Property Name="Canton" Type="varchar" MaxLength="50" />
+    <Property Name="Distrito" Type="varchar" MaxLength="50" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PEDIDO">
+    <Key>
+      <PropertyRef Name="IdPedido" />
+    </Key>
+    <Property Name="IdPedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Direccion" Type="varchar" MaxLength="255" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+    <Property Name="IdRepartidor" Type="int" />
+    <Property Name="IdCliente" Type="int" />
+  </EntityType>
+  <EntityType Name="PREGUNTAS">
+    <Key>
+      <PropertyRef Name="IdPreguntas" />
+    </Key>
+    <Property Name="IdPreguntas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Pregunta" Type="varchar" MaxLength="255" />
+    <Property Name="Respuesta" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="REPARTIDOR">
+    <Key>
+      <PropertyRef Name="IdRepartidor" />
+    </Key>
+    <Property Name="IdRepartidor" Type="int" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="Pass" Type="varchar" MaxLength="50" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="100" />
+    <Property Name="Estado" Type="varchar" MaxLength="50" />
+    <Property Name="Provincia" Type="varchar" MaxLength="50" />
+    <Property Name="Canton" Type="varchar" MaxLength="50" />
+    <Property Name="Distrito" Type="varchar" MaxLength="50" />
+    <Property Name="Telefono" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ROL">
+    <Key>
+      <PropertyRef Name="Usuario" />
+    </Key>
+    <Property Name="Usuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TALLER">
+    <Key>
+      <PropertyRef Name="Nombre" />
+    </Key>
+    <Property Name="IdEmprendimiento" Type="int" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Precio" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Descripcion" Type="text" />
+    <Property Name="Link" Type="varchar" MaxLength="255" />
+    <Property Name="Tipo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TALLER_CLIENTE">
+    <Key>
+      <PropertyRef Name="Taller" />
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="Taller" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IdCliente" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TALLER_FOTOS">
+    <Key>
+      <PropertyRef Name="Taller" />
+      <PropertyRef Name="Foto" />
+    </Key>
+    <Property Name="Taller" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Foto" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__PEDIDO__IdClient__4BAC3F29">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PEDIDO__IdRepart__4AB81AF0">
+    <End Role="REPARTIDOR" Type="Self.REPARTIDOR" Multiplicity="0..1" />
+    <End Role="PEDIDO" Type="Self.PEDIDO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REPARTIDOR">
+        <PropertyRef Name="IdRepartidor" />
+      </Principal>
+      <Dependent Role="PEDIDO">
+        <PropertyRef Name="IdRepartidor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TALLER__IdEmpren__3D5E1FD2">
+    <End Role="EMPRENDIMIENTO" Type="Self.EMPRENDIMIENTO" Multiplicity="0..1" />
+    <End Role="TALLER" Type="Self.TALLER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPRENDIMIENTO">
+        <PropertyRef Name="IdEmprendimiento" />
+      </Principal>
+      <Dependent Role="TALLER">
+        <PropertyRef Name="IdEmprendimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TALLER_CL__IdCli__45F365D3">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="TALLER_CLIENTE" Type="Self.TALLER_CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="TALLER_CLIENTE">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TALLER_CL__Talle__44FF419A">
+    <End Role="TALLER" Type="Self.TALLER" Multiplicity="1" />
+    <End Role="TALLER_CLIENTE" Type="Self.TALLER_CLIENTE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TALLER">
+        <PropertyRef Name="Nombre" />
+      </Principal>
+      <Dependent Role="TALLER_CLIENTE">
+        <PropertyRef Name="Taller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TALLER_FO__Talle__4222D4EF">
+    <End Role="TALLER" Type="Self.TALLER" Multiplicity="1" />
+    <End Role="TALLER_FOTOS" Type="Self.TALLER_FOTOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TALLER">
+        <PropertyRef Name="Nombre" />
+      </Principal>
+      <Dependent Role="TALLER_FOTOS">
+        <PropertyRef Name="Taller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="creativoDBModelStoreContainer">
+    <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPRENDIMIENTO" EntityType="Self.EMPRENDIMIENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PEDIDO" EntityType="Self.PEDIDO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PREGUNTAS" EntityType="Self.PREGUNTAS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REPARTIDOR" EntityType="Self.REPARTIDOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ROL" EntityType="Self.ROL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TALLER" EntityType="Self.TALLER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TALLER_CLIENTE" EntityType="Self.TALLER_CLIENTE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TALLER_FOTOS" EntityType="Self.TALLER_FOTOS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__PEDIDO__IdClient__4BAC3F29" Association="Self.FK__PEDIDO__IdClient__4BAC3F29">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PEDIDO__IdRepart__4AB81AF0" Association="Self.FK__PEDIDO__IdRepart__4AB81AF0">
+      <End Role="REPARTIDOR" EntitySet="REPARTIDOR" />
+      <End Role="PEDIDO" EntitySet="PEDIDO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TALLER__IdEmpren__3D5E1FD2" Association="Self.FK__TALLER__IdEmpren__3D5E1FD2">
+      <End Role="EMPRENDIMIENTO" EntitySet="EMPRENDIMIENTO" />
+      <End Role="TALLER" EntitySet="TALLER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TALLER_CL__IdCli__45F365D3" Association="Self.FK__TALLER_CL__IdCli__45F365D3">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="TALLER_CLIENTE" EntitySet="TALLER_CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TALLER_CL__Talle__44FF419A" Association="Self.FK__TALLER_CL__Talle__44FF419A">
+      <End Role="TALLER" EntitySet="TALLER" />
+      <End Role="TALLER_CLIENTE" EntitySet="TALLER_CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TALLER_FO__Talle__4222D4EF" Association="Self.FK__TALLER_FO__Talle__4222D4EF">
+      <End Role="TALLER" EntitySet="TALLER" />
+      <End Role="TALLER_FOTOS" EntitySet="TALLER_FOTOS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

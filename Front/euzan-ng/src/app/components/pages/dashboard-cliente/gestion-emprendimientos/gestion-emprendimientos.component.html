@@ -1,0 +1,48 @@
+<div id="emprendimientos" class="service-style-four pb-70">
+    <div class="container">
+        <div class="section-title">
+            <span class="space">---</span>
+            <h2>Gestiona tus emprendimientos aquí</h2>
+            <p>También podrás ver las invitaciones a administrar emprendimientos de Club Creativo así como el estado de tus solicitudes.</p>
+            <div class="button-agregar" >
+                <a (click)= "redirigir('/nuevo-emprendimiento')">Inscribir Nuevo Emprendimiento</a>
+            </div>
+        </div>
+        <div class="row">
+            <ng-template ngFor let-obj [ngForOf]="infoEmprendimientos" ; let-i="index">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-card">
+                        <h3>{{obj.Name}}: {{obj.Username}}</h3>
+
+                        <div *ngIf="esPendiente(obj.Username)">
+                            Te han invitado a ser administrador de este Emprendimiento
+                            <div class="banner-btn">
+                                <a id="aceptar" (click) = "aceptarSolicitud(obj.Username)">Aceptar Solicitud</a>       
+                            </div>
+                            <div class="banner-btn">
+                                <a id="rechazar" (click) = "rechazarSolicitud(obj.Username)">Rechazar Solicitud</a> 
+                            </div>
+                        </div>
+
+                        <div *ngIf="!esPendiente(obj.Username)">
+                            <div *ngIf="obj.State === 'Rechazada'">
+                                <p>Razón de rechazo: {{obj.Reason}}</p>
+                                <div class="banner-btn">
+                                    <a id="rechazar" (click) = "eliminarSolicitud(obj.Username)">Eliminar Solicitud</a>  
+                                </div>
+                            </div>
+                            <div *ngIf="obj.State === 'Pendiente'">
+                                <p>Esta Solicitud está en espera de ser aprobada por Club Creativo</p>
+                            </div>
+                            <div *ngIf="obj.State === 'Aceptada'">
+                                <div class="banner-btn">
+                                    <a id="editar" (click) = "ingresarEmprendimeinto(obj.Username)">Cambiar de Cuenta</a>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
