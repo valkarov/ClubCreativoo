@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+      dotnet: 3.1
+    commands:
+      - echo Installing frontend dependencies...
+      - cd Front/euzan-ng
+      - npm install
+      - cd ../../API/creativo-API
+      - echo Installing backend dependencies...
+      - dotnet restore
+  build:
+    commands:
+      - echo Building frontend...
+      - cd Front/euzan-ng
+      - ng build --prod
+      - cd ../../API/creativo-API
+      - echo Building backend...
+      - dotnet build --configuration Release
+  post_build:
+    commands:
+      - echo Build completed.
+artifacts:
+  files:
+    - '**/*'
